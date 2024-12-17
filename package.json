@@ -1,0 +1,25 @@
+{
+  "name": "do-bot-next",
+  "description": "",
+  "author": "exhertz",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "clean": "node scripts/cleanBuild.js",
+    "build": "npm run clean && tsc --build && tsc-alias && npm run build-plugins",
+    "start": "npm run build && node build/core/index.js",
+    "build-plugins": "node scripts/buildPlugins.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.1",
+    "fast-glob": "^3.3.2"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7"
+  }
+}

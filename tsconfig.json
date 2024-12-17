@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "outDir": "build",
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "strict": true,
+        "removeComments": true,
+        "inlineSourceMap": false,
+        "paths": {
+            "@Plugins/*": ["plugins/*"]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
