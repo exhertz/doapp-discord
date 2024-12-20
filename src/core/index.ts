@@ -55,6 +55,10 @@ const startup = async () => {
         console.error(err);
         client.warn('core', 'Failed to load any plugins, a plugin has errors in it.');
     }
+    
+    await registerCommands(client);
+    await registerEvents(client);
+
     try {
         client.log('core', ':: Loading Client');
         await client.login(client.config.TOKEN);
@@ -63,9 +67,6 @@ const startup = async () => {
         client.error('core', 'Failed to login client, exiting...');
         exit(1);
     }
-
-    await registerCommands(client);
-    await registerEvents(client);
 
     client.log('core', `Application started → ${Date.now()-startTime} ms.`);
 };
