@@ -15,7 +15,8 @@
         "removeComments": true,
         "inlineSourceMap": false,
         "paths": {
-            "@Plugins/*": ["plugins/*"]
+            "@Plugins/*": ["plugins/*"],
+            "@Core/*": ["core/*"],
         }
     },
     "include": [
