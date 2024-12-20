@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "clean": "node scripts/cleanBuild.js",
-    "build": "npm run clean && tsc --build && tsc-alias && npm run build-plugins",
+    "build": "npm run clean && npm run build-plugins-deps && tsc --build && tsc-alias && npm run build-plugins",
     "start": "npm run build && node build/core/index.js",
-    "build-plugins": "node scripts/buildPlugins.js"
+    "build-plugins": "node scripts/buildPlugins.js",
+    "build-plugins-deps": "node scripts/buildPluginsDeps.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
