@@ -47,7 +47,7 @@ client.config = process.env;
 Object.assign(client, logger);
 
 const startup = async () => {
-    client.log('core', '');
+    client.log('core', ':: Loading Plugins');
     try {
         await import('@Plugins/index.js');
         client.log('core', ':: Plugins Loaded');

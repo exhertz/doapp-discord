@@ -1,6 +1,6 @@
 import { client } from 'core/index.js';
 
-client.log('core', ':: Loading Plugins');
+void client;
 
 /*
  * Dont write code to this file!!!
