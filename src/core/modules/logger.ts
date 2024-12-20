@@ -12,13 +12,13 @@ const formatDate = (date: any) => ([
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-function removeAnsiEscapeSequences(str) {
+function removeAnsiEscapeSequences(str: string) {
     // eslint-disable-next-line no-control-regex
     const ansiRegex = /\x1b\[[0-9;]*[mGKHmsu]/g;
     return str.replace(ansiRegex, '');
 }
 
-const writeLog = (level: 'log' | 'warn', dir: string, text: string): void => {
+const writeLog = (level: 'log' | 'warn' | 'error', dir: string, text: string): void => {
     const currentDate = new Date();
     const datetime = formatDate(currentDate);
     const [nameFile] = currentDate.toISOString().split('T');
@@ -36,6 +36,9 @@ const writeLog = (level: 'log' | 'warn', dir: string, text: string): void => {
 
     if (level === 'warn')
         console.warn(`[${datetime}][Warning][${dir}] ${text}`);
+
+    if (level === 'error')
+        console.error(`[${datetime}][Error][${dir}] ${text}`);
 };
 
 const logger: Logger = {
@@ -44,6 +47,9 @@ const logger: Logger = {
     },
     warn: (dir: string, text: string): void => {
         writeLog('warn', dir, text);
+    },
+    error: (dir: string, text: string): void => {
+        writeLog('error', dir, text);
     }
 };
 
